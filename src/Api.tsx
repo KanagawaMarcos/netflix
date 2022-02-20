@@ -1,18 +1,15 @@
 import Axios from 'axios'
 
-const token = ``
+const token = `${process.env.REACT_APP_TOKEN}`
+
 
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
 
-const bodyParameters = {
-   key: "value"
-};
-
 const getMovieDetails: () => void = () => {
     Axios.get( 
-        'https://api.themoviedb.org/3/movie/550',
+        'https://api.themoviedb.org/3/movie/now_playing',
         config
     ).then(res => console.log(res.data)).catch(console.error);
 }
